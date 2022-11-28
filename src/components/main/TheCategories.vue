@@ -26,9 +26,10 @@ async function getCategories() {
         categories.value = data;
       });
 }
-onMounted(()=>{
-  getCategories()
-})
+
+onMounted(() => {
+  getCategories();
+});
 
 </script>
 
@@ -42,11 +43,16 @@ onMounted(()=>{
 }
 
 .categories {
-  font-family: Comfortaa, cursive;
   @include myFlex();
+  font-family: Comfortaa, cursive;
   padding: 20px 30px;
   overflow-x: auto;
   gap: 30px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   .category {
     min-height: 100px;
     font-size: 26px;

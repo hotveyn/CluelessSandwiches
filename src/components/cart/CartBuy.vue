@@ -37,6 +37,7 @@
     font-size: 26px;
     color: white;
     background: linear-gradient(248.99deg, #38E6EB -37.47%, #2DEB80 132.11%);
+    cursor: pointer;
 
   }
 }
