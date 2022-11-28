@@ -1,6 +1,6 @@
 <template>
   <TheHeader/>
-  <main class="page">
+  <main class="main">
       <slot/>
   </main>
   <TheFooter/>
@@ -13,6 +13,5 @@ import TheFooter from "@/components/footer/TheFooter.vue";
 </script>
 
 <style scoped lang="scss">
-.page-container{
-}
+
 </style>
