@@ -10,19 +10,29 @@
       <ul class="links">
 
       </ul>
-      <button>
-        <span class="material-symbols-outlined">
-          person
-        </span>
-        <span class="button__text">Войти</span>
-      </button>
+      <div class="header__buttons">
+        <router-link :to="{name:'cart'}">
+          <button>
+            <span class="material-symbols-outlined">
+              shopping_cart
+            </span>
+            <span class="button__text">Корзина</span>
+          </button>
+        </router-link>
+        <router-link :to="{name:'profile'}">
+          <button>
+            <span class="material-symbols-outlined">
+              person
+            </span>
+            <span class="button__text">Войти</span>
+          </button>
+        </router-link>
+      </div>
     </div>
   </header>
 </template>
 
 <script setup lang="ts">
-
-
 
 </script>
 
@@ -57,19 +67,22 @@ header {
     @include myFlex();
     font-size: 22px;
     gap: 7px;
-    color: white;
     font-family: 'Comfortaa', cursive;
     cursor: pointer;
-    transition: background 0.2s ease;
 
-    .material-symbols-outlined{
+    .material-symbols-outlined {
       font-size: 30px;
     }
-    span{
+
+    span {
       background: -webkit-linear-gradient(248.99deg, #33E7BB -37.47%, #1FEE7E 132.11%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+  }
+  .header__buttons{
+    display: flex;
+    gap: 20px;
   }
 }
 </style>
