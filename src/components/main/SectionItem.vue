@@ -2,39 +2,52 @@
 
   <div class="products__section" :id="props.categoryName">
     <div class="container-main">
-      <h2>{{ props.categoryName }}</h2>
-      <div class="products">
-        <ProductItem
-            v-for="product in products"
-            :key="product.id"
-            :product="product"
-        />
-      </div>
+      <template v-if="isLoading">
+        <div class="section-loading">
+          <h1 class="section-loading__title">
+            Loading...
+          </h1>
+        </div>
+      </template>
+      <template v-else>
+        <h2>{{ props.categoryName }}</h2>
+        <div class="products">
+          <!--        Продукты которые находятся в этой категории-->
+          <ProductItem
+              v-for="product in products"
+              :key="product.id"
+              :product="product"
+          />
+        </div>
+      </template>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import ProductItem from "@/components/ProductItem.vue";
-import {onMounted, ref} from "vue";
+import {onMounted, Ref, ref} from "vue";
 
 const props = defineProps<{
   categoryName: string,
   categoryId: number
 }>();
 
-let products = ref({});
+let products = ref();
+let isLoading: Ref<boolean> = ref(true);
 
 async function getProductsByCategory() {
   fetch(`http://127.0.0.1:8000/api/categories/${props.categoryId}/product`)
       .then(response => response.json())
       .then(data => {
         products.value = data;
+        isLoading.value = false;
       });
 }
-onMounted(()=>{
+
+onMounted(() => {
   getProductsByCategory();
-})
+});
 </script>
 
 <style scoped lang="scss">
@@ -48,6 +61,7 @@ onMounted(()=>{
 }
 
 .container-main {
+  font-family: Comfortaa, cursive;
   width: 1300px;
   margin: 0 auto;
   background-color: white;
@@ -55,10 +69,12 @@ onMounted(()=>{
   border-radius: 15px;
   padding: 30px;
 
+  .section-loading__title{
+    font-size: 30px;
+  }
   h2 {
     margin-left: 70px;
     font-size: 32px;
-    font-family: Comfortaa, cursive;
   }
 
   .products {

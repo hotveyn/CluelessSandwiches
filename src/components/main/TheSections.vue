@@ -1,32 +1,54 @@
 <template>
-  <SectionItem
-      v-for="(category, index) in categories"
-      :key="index"
-      :category-name="category.name"
-      :category-id="category.id"
-  />
+  <div class="sections">
+    <template v-if="isLoading">
+      <div class="sections-loading">
+        <h1 class="sections-loading__title">
+          Loading...
+        </h1>
+      </div>
+    </template>
+    <template v-else>
+      <!--  Секции категории-->
+      <SectionItem
+          v-for="(category, index) in categories"
+          :key="index"
+          :category-name="category.name"
+          :category-id="category.id"
+      />
+    </template>
+  </div>
 </template>
 
 <script setup lang="ts">
-import SectionItem from "@/components/main/SectionItem.vue"
+import SectionItem from "@/components/main/SectionItem.vue";
+import {onMounted, Ref, ref} from "vue";
 
-
-import {onMounted, ref} from "vue";
-
-const categories = ref({});
+const categories = ref();
+let isLoading: Ref<boolean> = ref(true);
 
 async function getCategories() {
   fetch("http://127.0.0.1:8000/api/categories/")
       .then(response => response.json())
       .then(data => {
         categories.value = data;
+        isLoading.value = false;
       });
 }
-onMounted(()=>{
-  getCategories()
-})
+
+onMounted(() => {
+  getCategories();
+});
 </script>
 
 <style scoped lang="scss">
+@import "@/mixin.scss";
 
+.sections-loading__title {
+  font-family: 'Comfortaa', cursive;
+  font-size: 30px;
+  color: white;
+}
+.sections{
+  min-height: 70vh;
+}
 </style>
