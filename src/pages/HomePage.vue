@@ -1,35 +1,26 @@
 <template>
   <TheCategories/>
-  <TheSection
-      v-for="(category, index) in categories"
-      :key="index"
-      :category-name="category.name"
-      :category-id="category.id"
-  />
+  <TheSections/>
 </template>
 
 <script setup lang="ts">
 import TheCategories from "@/components/main/TheCategories.vue";
-import TheSection from "@/components/main/SectionItem.vue";
-
-import {onMounted, ref} from "vue";
-
-const categories = ref({});
-
-async function getCategories() {
-  fetch("http://127.0.0.1:8000/api/categories/")
-      .then(response => response.json())
-      .then(data => {
-        categories.value = data;
-      });
-}
-onMounted(()=>{
-  getCategories()
-})
+import TheSections from "@/components/main/TheSections.vue";
 
 </script>
 
 <style scoped lang="scss">
+@import "@/mixin.scss";
 
+.sections_loading {
+  font-family: 'Comfortaa', cursive;
+  @include myFlex($jc: center);
+  min-height: 500px;
 
+  .sections-loading__title {
+    font-size: 30px;
+    color: #858585;
+  }
+
+}
 </style>
