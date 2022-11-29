@@ -9,7 +9,9 @@
             src="@/assets/img/exampleSandwich.jpg"
             alt="product">
       </RouterLink>
-      <AddToCart class="add-to-cart"/>
+      <div class="add-to-cart">
+        <ToCartButton/>
+      </div>
     </div>
     <h3>{{props.product.name}}</h3>
     <p class="price">{{props.product.price}}$</p>
@@ -17,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import AddToCart from "@/components/AddToCart.vue";
+import ToCartButton from "@/components/ToCartButton.vue";
 import IProduct from "@/interfaces/IProduct";
 
 const props = defineProps<{
