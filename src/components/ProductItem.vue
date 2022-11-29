@@ -6,6 +6,7 @@
           :to="'/product/'+props.product.id"
       >
         <img
+            class="product__img"
             src="@/assets/img/exampleSandwich.jpg"
             alt="product">
       </RouterLink>
@@ -32,9 +33,9 @@ const props = defineProps<{
 .product {
   @include myFlex($fd: column);
   font-family: Comfortaa, cursive;
-  width: 350px;
   max-height: 280px;
   gap: 10px;
+  margin: 0 auto;
 
   h3{
     font-size: 20px;
@@ -56,10 +57,16 @@ const props = defineProps<{
     }
 
     img {
-      width: 350px;
+      width: 330px;
       height: 250px;
       object-fit: contain;
+      transition: transform 0.2s;
+      &:hover{
+        transform: scale(1.1,1.1);
+      }
     }
   }
+
+
 }
 </style>

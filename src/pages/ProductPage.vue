@@ -5,7 +5,7 @@
     <div class="product__container">
       <div class="product">
         <template v-if="isLoading">
-          <div class="product__container">
+          <div class="product__loading">
             <h2 class="product-loading__title">
               Loading...
             </h2>
@@ -65,9 +65,13 @@ onMounted(() => {
 }
 
 .product__container {
-  max-width: 900px;
+  max-width: 830px;
   margin: 0 auto;
 
+  .product__loading{
+    width: 100%;
+    @include myFlex($jc:center);
+  }
   .product {
     @include myFlex($ai: start, $jc: start);
     min-height: 400px;
