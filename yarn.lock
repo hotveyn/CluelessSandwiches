@@ -635,6 +635,11 @@ vue-demi@*:
   resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.13.11.tgz#7d90369bdae8974d87b1973564ad390182410d99"
   integrity sha512-IR8HoEEGM65YY3ZJYAjMlKygDQn25D5ajNFNoKh9RSDMQtlzCxtfQjdQgv9jjK+m3377SsJXY8ysq8kLCZL25A==
 
+vue-loading-overlay@^6.0:
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/vue-loading-overlay/-/vue-loading-overlay-6.0.2.tgz#69c844067d4344f72474f87f68020eb066763203"
+  integrity sha512-5GCvv6hPjNfHg+tKnLkk6yO/b/AdCCkdZb2dfrVFOuDyJz38dbm34k6oohVy/xIoFzPGsEEVtwCxq5G3RIYZ1Q==
+
 vue-router@4:
   version "4.1.6"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.1.6.tgz#b70303737e12b4814578d21d68d21618469375a1"

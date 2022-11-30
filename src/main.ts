@@ -2,12 +2,11 @@ import { createApp } from 'vue'
 import '@/reset.css'
 import App from './App.vue'
 import { createPinia } from 'pinia'
-import axios from "axios";
 import router from "@/routes/router";
+import {LoadingPlugin} from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/css/index.css';
 
 const pinia = createPinia()
 const app = createApp(App)
 
-app.config.globalProperties.axios = axios
-
-app.use(pinia).use(router).mount('#app')
+app.use(pinia).use(router).use(LoadingPlugin).mount('#app')
