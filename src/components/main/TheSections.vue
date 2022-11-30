@@ -1,11 +1,11 @@
 <template>
   <div class="sections">
     <template v-if="isLoading">
-      <div class="sections-loading">
-        <h1 class="sections-loading__title">
-          Loading...
-        </h1>
-      </div>
+      <loading
+          :active="isLoading"
+          color="#2DEB80"
+          :is-full-page="false"
+      />
     </template>
     <template v-else>
       <!--  Секции категории-->
@@ -22,6 +22,8 @@
 <script setup lang="ts">
 import SectionItem from "@/components/main/SectionItem.vue";
 import {onMounted, Ref, ref} from "vue";
+import Loading from "vue-loading-overlay";
+import "vue-loading-overlay/dist/css/index.css";
 
 const categories = ref();
 let isLoading: Ref<boolean> = ref(true);
@@ -48,7 +50,8 @@ onMounted(() => {
   font-size: 30px;
   color: white;
 }
-.sections{
+
+.sections {
   min-height: 70vh;
 }
 </style>

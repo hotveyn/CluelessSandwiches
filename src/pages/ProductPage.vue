@@ -5,11 +5,11 @@
     <div class="product__container">
       <div class="product">
         <template v-if="isLoading">
-          <div class="product__loading">
-            <h2 class="product-loading__title">
-              Loading...
-            </h2>
-          </div>
+          <loading
+              :active="isLoading"
+              color="#2DEB80"
+              :is-full-page="false"
+          />
         </template>
         <template v-else>
           <img
@@ -33,17 +33,21 @@
 <script setup lang="ts">
 import {onMounted, Ref, ref} from "vue";
 import {useRoute} from "vue-router";
+import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/css/index.css';
+
 
 const route = useRoute();
 
 let product = ref();
-let isLoading = ref(true);
+let isLoading:Ref<boolean> = ref(true);
 
 async function getProduct() {
   fetch(`http://127.0.0.1:8000/api/product/${route.params.id}`)
       .then(response => response.json())
       .then((data) => {
         product.value = data;
+        console.log(product.value)
         isLoading.value = false;
       });
 }
@@ -66,7 +70,6 @@ onMounted(() => {
 
 .product__container {
   max-width: 830px;
-  margin: 0 auto;
 
   .product__loading{
     width: 100%;
@@ -74,6 +77,7 @@ onMounted(() => {
   }
   .product {
     @include myFlex($ai: start, $jc: start);
+    position: relative;
     min-height: 400px;
     min-width: 860px;
     background-color: white;

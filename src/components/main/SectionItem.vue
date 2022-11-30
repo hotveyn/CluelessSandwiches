@@ -3,11 +3,11 @@
   <div class="products__section" :id="props.categoryName">
     <div class="container-main">
       <template v-if="isLoading">
-        <div class="section-loading">
-          <h1 class="section-loading__title">
-            Loading...
-          </h1>
-        </div>
+        <loading
+            :active="isLoading"
+            color="#2DEB80"
+            :is-full-page="false"
+        />
       </template>
       <template v-else>
         <h2>{{ props.categoryName }}</h2>
@@ -27,6 +27,8 @@
 <script setup lang="ts">
 import ProductItem from "@/components/ProductItem.vue";
 import {onMounted, Ref, ref} from "vue";
+import Loading from "vue-loading-overlay";
+import "vue-loading-overlay/dist/css/index.css";
 
 const props = defineProps<{
   categoryName: string,
