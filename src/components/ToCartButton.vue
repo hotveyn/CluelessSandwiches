@@ -17,7 +17,7 @@ function addToCart(){
 </script>
 
 <style scoped lang="scss">
-@import "@/mixin.scss";
+@import "@/assets/css/mixin.scss";
 
 .add-to-cart{
   @include myFlex($jc:center);

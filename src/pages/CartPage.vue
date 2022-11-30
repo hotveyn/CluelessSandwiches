@@ -18,7 +18,7 @@ import CartBuy from "@/components/cart/CartBuy.vue"
 
 <style scoped lang="scss">
 
-@import "@/mixin.scss";
+@import "@/assets/css/mixin.scss";
 
 main {
   min-height: 80vh;

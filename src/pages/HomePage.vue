@@ -10,7 +10,7 @@ import TheSections from "@/components/main/TheSections.vue";
 </script>
 
 <style scoped lang="scss">
-@import "@/mixin.scss";
+@import "@/assets/css/mixin.scss";
 
 .sections_loading {
   font-family: 'Comfortaa', cursive;

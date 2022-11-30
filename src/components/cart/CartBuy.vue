@@ -17,7 +17,7 @@
 </script>
 
 <style scoped lang="scss">
-@import "@/mixin.scss";
+@import "@/assets/css/mixin.scss";
 
 .buy {
   max-width: 400px;

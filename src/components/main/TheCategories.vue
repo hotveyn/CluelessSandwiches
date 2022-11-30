@@ -34,7 +34,7 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
-@import "@/mixin.scss";
+@import "@/assets/css/mixin.scss";
 
 .container-main {
   max-width: 1300px;

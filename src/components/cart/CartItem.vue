@@ -43,7 +43,7 @@ import CartItemCounter from "@/components/cart/CartItemCounter.vue";
 </script>
 
 <style scoped lang="scss">
-@import "@/mixin.scss";
+@import "@/assets/css/mixin.scss";
 
 .options{
   font-family: Comfortaa, cursive;

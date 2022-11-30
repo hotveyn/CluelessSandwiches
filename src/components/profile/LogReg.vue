@@ -14,7 +14,7 @@ import TheRegister from "@/components/profile/TheRegister.vue"
 </script>
 
 <style scoped lang="scss">
-@import "@/mixin.scss";
+@import "@/assets/css/mixin.scss";
 
 
 .log-reg{

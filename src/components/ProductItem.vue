@@ -28,7 +28,7 @@ const props = defineProps<{
 </script>
 
 <style scoped lang="scss">
-@import "@/mixin.scss";
+@import "@/assets/css/mixin.scss";
 
 .product {
   @include myFlex($fd: column);

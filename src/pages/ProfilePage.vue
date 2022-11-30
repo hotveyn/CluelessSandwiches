@@ -14,7 +14,7 @@ import LogReg from "@/components/profile/LogReg.vue";
 </script>
 
 <style scoped lang="scss">
-@import "@/mixin.scss";
+@import "@/assets/css/mixin.scss";
 
 main {
   min-height: 80vh;

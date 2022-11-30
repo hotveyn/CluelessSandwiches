@@ -16,7 +16,7 @@
 </script>
 
 <style scoped lang="scss">
-@import "@/mixin.scss";
+@import "@/assets/css/mixin.scss";
 
 .log {
   @include myFlex($jc:space-between,$ai:start, $fd:column);

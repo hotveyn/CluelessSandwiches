@@ -59,7 +59,7 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
-@import "@/mixin.scss";
+@import "@/assets/css/mixin.scss";
 
 .product-wrapper {
   background: linear-gradient(248.99deg, #38E6EB -37.47%, #2DEB80 132.11%);

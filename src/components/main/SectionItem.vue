@@ -53,7 +53,7 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
-@import "@/mixin.scss";
+@import "@/assets/css/mixin.scss";
 
 .products__section {
   width: 100%;

@@ -19,7 +19,7 @@
 </script>
 
 <style scoped lang="scss">
-@import "@/mixin.scss";
+@import "@/assets/css/mixin.scss";
 
 .counter-button {
   @include myFlex($jc: center);

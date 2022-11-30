@@ -43,7 +43,7 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
-@import "@/mixin.scss";
+@import "@/assets/css/mixin.scss";
 
 .sections-loading__title {
   font-family: 'Comfortaa', cursive;
