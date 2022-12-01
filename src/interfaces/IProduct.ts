@@ -7,5 +7,5 @@ export default interface IProduct{
     price: number,
     description: string,
     category: ICategory,
-    options: IOption
+    options: IOption[]
 }
