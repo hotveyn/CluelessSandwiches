@@ -1,21 +1,17 @@
 <template>
   <div class="sections">
-    <template v-if="isLoading">
-      <loading
+      <loading v-if="isLoading"
           :active="isLoading"
           color="#2DEB80"
           :is-full-page="false"
       />
-    </template>
-    <template v-else>
       <!--  Секции категории-->
-      <SectionItem
+      <SectionItem v-else
           v-for="(category, index) in categories"
           :key="index"
           :category-name="category.name"
           :category-id="category.id"
       />
-    </template>
   </div>
 </template>
 
