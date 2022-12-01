@@ -8,9 +8,14 @@
         <img
             class="product__img"
             src="@/assets/img/exampleSandwich.jpg"
-            alt="product">
+            alt="product"
+        >
       </RouterLink>
-      <ToCartButton class="add-to-cart"/>
+      <ToCartButton
+          :options="[]"
+          :product="props.product"
+          class="add-to-cart"
+      />
     </div>
     <h3>{{props.product.name}}</h3>
     <p class="price">{{props.product.price}}$</p>
@@ -24,7 +29,6 @@ import IProduct from "@/interfaces/IProduct";
 const props = defineProps<{
   product: IProduct
 }>();
-
 </script>
 
 <style scoped lang="scss">
