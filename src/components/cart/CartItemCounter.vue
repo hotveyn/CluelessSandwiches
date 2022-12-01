@@ -5,7 +5,7 @@
       add
     </span>
     </button>
-    <p>1</p>
+    <p>{{props.product.count}}</p>
     <button class="minus">
     <span class="material-symbols-outlined">
       remove
@@ -15,6 +15,12 @@
 </template>
 
 <script setup lang="ts">
+
+import {ICartProduct} from "@/interfaces/ICartProduct";
+
+const props = defineProps<{
+  product: ICartProduct;
+}>();
 
 </script>
 
