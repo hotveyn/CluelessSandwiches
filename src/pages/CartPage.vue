@@ -3,17 +3,23 @@
     <div class="main-container">
       <div class="items">
        <h2>Продукты в корзине</h2>
-        <CartItem/>
+        <CartItem
+          v-for="product in cartStore.productsInCart"
+          :product="product"
+        />
       </div>
       <CartBuy/>
     </div>
-
   </main>
 </template>
 
 <script setup lang="ts">
 import CartItem from "@/components/cart/CartItem.vue"
 import CartBuy from "@/components/cart/CartBuy.vue"
+import {useCartStore} from "@/stores/cart";
+
+const cartStore = useCartStore();
+
 </script>
 
 <style scoped lang="scss">
@@ -30,8 +36,8 @@ main {
     @include myFlex($ai:start);
     gap: 30px;
     .items {
-      @include myFlex($ai:start, $fd:column, $jc:center);
-      gap: 20px;
+      @include myFlex($fd:column, $jc:center);
+      gap: 50px;
       max-width: 900px;
       width: 100%;
       background-color: white;
