@@ -1,4 +1,5 @@
 <template>
+  <div class="item-wrapper">
     <div class="item">
       <div class="img-wrapper">
         <img
@@ -9,22 +10,27 @@
       </div>
       <div class="item__info">
         <div class="item_text">
-          <h3>Название продукта</h3>
-          <p class="item__description">Описание продукта</p>
+          <h3>{{ props.product.name }}</h3>
+          <p class="item__description">{{props.product.description}}</p>
         </div>
         <div class="item__buy-section">
-          <p>5$ за одну штуку</p>
+          <p>{{props.product.price}}$ за одну штуку</p>
           <div class="item__counter">
-            <CartItemCounter/>
-            <p class="item__total-price">Total 30$</p>
+            <CartItemCounter :product="props.product"/>
+            <p class="item__total-price">Total {{cartStore.getProductPrice(props.product)}}$</p>
           </div>
         </div>
       </div>
     </div>
     <div class="options">
       <div class="option">
-        <label class="label" for="cheese">Добавить ли сыр</label>
-        <input type="checkbox" name="cheese" id="cheese">
+        <label
+            class="label"
+            for="cheese">Добавить ли сыр</label>
+        <input
+            type="checkbox"
+            name="cheese"
+            id="cheese">
       </div>
       <div class="option">
         <label class="label" for="bekon">Добавить ли бекон</label>
@@ -35,21 +41,35 @@
         <input type="checkbox" name="cheese" id="banan">
       </div>
     </div>
+  </div>
 </template>
 
 <script setup lang="ts">
 import CartItemCounter from "@/components/cart/CartItemCounter.vue";
+import {ICartProduct} from "@/interfaces/ICartProduct";
+import {useCartStore} from "@/stores/cart";
 
+const cartStore = useCartStore();
+
+const props = defineProps<{
+  product:ICartProduct
+}>();
+console.log(props.product
+)
 </script>
 
 <style scoped lang="scss">
 @import "@/assets/css/mixin.scss";
 
-.options{
+.item-wrapper{
+  @include myFlex($jc: center,$fd:column);
+}
+.options {
   font-family: Comfortaa, cursive;
   @include myFlex($ai: start, $jc: start);
   gap: 30px;
-  .option{
+
+  .option {
     @include myFlex($ai: center, $jc: center);
     gap: 10px;
   }
@@ -64,7 +84,7 @@ import CartItemCounter from "@/components/cart/CartItemCounter.vue";
     overflow: hidden;
 
     img {
-      width: 350px;
+      width: 320px;
       height: 250px;
       object-fit: contain;
     }
@@ -73,7 +93,7 @@ import CartItemCounter from "@/components/cart/CartItemCounter.vue";
   .item__info {
     @include myFlex($fd: column, $ai: start);
     min-height: 220px;
-    min-width: 400px;
+    max-width: 450px;
 
     .item_text {
       h3 {
